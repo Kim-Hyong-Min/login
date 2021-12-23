@@ -1,6 +1,6 @@
 create database loginServer;
 
-create table users(
+create table loginServer.users(
 	code integer primary key auto_increment,
 	id varchar(30) not null,
 	pw varchar(30) not null,
@@ -13,5 +13,7 @@ create table users(
 	phone varchar(30) not null,
 	regDate datetime not null default current_timestamp
 	);
+
+use loginServer;
 
 insert into users (id, pw, name, year, month, day, gender, email, phone) values('qwer', '1234', '김형민', '1990', '10', '12', '남자', '1234@naver.com', '123456');
