@@ -13,16 +13,17 @@
         }
         body{
             width: 100vw;
-            height: 150vh;
+            height: 100vh;
             background-color: white;
             display: grid;
             justify-content: center;
+            background-color: rgb(211, 208, 203);
         }
         div{
             margin-top: 100px;
             display: grid;
             justify-content: center;
-            grid-template-rows: 10% 85% 5%;
+            grid-template-rows: 10% 80% 10%;
             grid-template-areas: 
             "header"
             "main"
@@ -35,24 +36,37 @@
             justify-content: center;
         }
         main{
+            margin-top: 50px;
             grid-area: main;
             text-align: center;
             display: grid;
+            grid-template-columns: 80% 20%;
+            grid-template-rows: 25% 50% 25%;
             grid-template-areas: 
             'sec1 form'
             'sec2 form'
+            'sec3 sec3'
             ;
         }
         .sec1{
+            height: 5vh;
             grid-area: sec1;
             display: flex;
             margin-left: 50px;
-            font-size: 2em;
             gap: 10px;
             color: rgb(62, 224, 56);
         }
+        a{
+            font-size: 2em;
+            text-shadow: 2px 2px 2px gray;
+        }
         .sec2{
             grid-area: sec2;
+            display: grid;
+            justify-content: center;
+        }
+        .sec3{
+            grid-area: sec3;
             display: grid;
             justify-content: center;
         }
@@ -73,9 +87,6 @@
             display: grid;
             justify-content: center;
             text-align: center;
-        }
-        h1{
-            font-size: 3em;
         }
         #logout{
             margin-left: 30px;
@@ -109,7 +120,6 @@
             margin-right: 10px;
         }
         article{
-            border: solid black 1px;
             width: 1000px;
             display: flex;
             align-items: center;
@@ -117,9 +127,11 @@
             margin-left: 120px;
         }
         button{
-            width: 100px;
+            width: 200px;
             height: 80px;
-            font-size: 1.5em;
+            font-size: 2em;
+            color: white;
+            background-color: rgb(62, 224, 56);
         }
     </style>
     <title>main</title>
@@ -147,22 +159,9 @@
             </section>
             <section class="sec2">
                 <img id="img1" src="https://www.ibric.org/upload/icons/icon_0034701.png">
+            </section>
+            <section class="sec3">
                 <button onclick="location='_09_boardList.jsp'">게시판</button>
-                <article>
-                    <img id="img2" src="https://lh3.googleusercontent.com/proxy/fFCc0bWa8APV4dRaLsRm7XAhIBR7oRASKLwSiNrGBixOBOWYK_yMk8N0QimyF96IrRDcjgrfGVanVRU9v28C3HEEDVLLI5OUX72x2MNpwzjJR_hXdYEF">
-                    <p>목숨 걸고도 못 간다는 세계의 위험한 섬들
-                        무인도는 동경의 대상이며, 물과 식량만 휴대한다면 여행하기 안전한 장소로 인식되곤합니다. 그러나 아름다운 해변과 조용한 숲으로 이루어진 무인도라 할지라도 여행하기 최고의 장소는 아닐 수도 있는데요.천혜의 비경으로 불리는 무인도에 아무것도 모르고 발을 들여놓는 순간, 전혀 생각지도 못했던 위험이 도사리고 있을수도 있습니다. 아래에 여러가지 이유로 방문하기 위</p>
-                </article>
-                <article>
-                    <img id="img2" src="https://newsimg.sedaily.com/2021/11/08/22TXQ8CS4L_1.jpg">
-                    <p>목숨 걸고도 못 간다는 세계의 위험한 섬들
-                        무인도는 동경의 대상이며, 물과 식량만 휴대한다면 여행하기 안전한 장소로 인식되곤합니다. 그러나 아름다운 해변과 조용한 숲으로 이루어진 무인도라 할지라도 여행하기 최고의 장소는 아닐 수도 있는데요.천혜의 비경으로 불리는 무인도에 아무것도 모르고 발을 들여놓는 순간, 전혀 생각지도 못했던 위험이 도사리고 있을수도 있습니다. 아래에 여러가지 이유로 방문하기 위</p>
-                </article>
-                <article>
-                    <img id="img2" src="https://w.namu.la/s/3d571ce80dbea6651a22b676f986014fba0db76f1df80b43e45198266679a00415f5c636fd32bb8a218ae6d08d78442458d6859196f48540a98688112524dcabb5f43697c23c7515df860828bddec734077976c66ebc1a162c9a3b89053dc561">
-                    <p>목숨 걸고도 못 간다는 세계의 위험한 섬들
-                        무인도는 동경의 대상이며, 물과 식량만 휴대한다면 여행하기 안전한 장소로 인식되곤합니다. 그러나 아름다운 해변과 조용한 숲으로 이루어진 무인도라 할지라도 여행하기 최고의 장소는 아닐 수도 있는데요.천혜의 비경으로 불리는 무인도에 아무것도 모르고 발을 들여놓는 순간, 전혀 생각지도 못했던 위험이 도사리고 있을수도 있습니다. 아래에 여러가지 이유로 방문하기 위</p>
-                </article>
             </section>
             <%
     		String str = (String) session.getAttribute("log");
