@@ -54,6 +54,7 @@
         .sec2{
             grid-area: sec2;
             display: grid;
+            justify-content: center;
         }
         .form{
             margin-top: 150px;
@@ -115,6 +116,11 @@
             margin-top: 50px;
             margin-left: 120px;
         }
+        button{
+            width: 100px;
+            height: 80px;
+            font-size: 1.5em;
+        }
     </style>
     <title>main</title>
 </head>
@@ -141,6 +147,7 @@
             </section>
             <section class="sec2">
                 <img id="img1" src="https://www.ibric.org/upload/icons/icon_0034701.png">
+                <button onclick="location='_09_boardList.jsp'">게시판</button>
                 <article>
                     <img id="img2" src="https://lh3.googleusercontent.com/proxy/fFCc0bWa8APV4dRaLsRm7XAhIBR7oRASKLwSiNrGBixOBOWYK_yMk8N0QimyF96IrRDcjgrfGVanVRU9v28C3HEEDVLLI5OUX72x2MNpwzjJR_hXdYEF">
                     <p>목숨 걸고도 못 간다는 세계의 위험한 섬들

@@ -8,6 +8,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import util.DBManager;
+
 public class userDAO {
 	
 	// Data Access Object
@@ -27,24 +29,26 @@ public class userDAO {
 	
 	private ArrayList<userDTO> users = null;
 	
-	public Connection getConnection() {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			String url = "jdbc:mysql://localhost:3306/loginServer?serverTimezone=UTC";
-			String user = "root";
-			String password = "root";
-			conn = DriverManager.getConnection(url, user, password);
-			
-			if(conn != null) {
-				System.out.println("DB연동 성공!");				
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return conn;
-	}
+	
+	// 3. DB연동하기
+//	public Connection getConnection() {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			
+//			String url = "jdbc:mysql://localhost:3306/loginServer?serverTimezone=UTC";
+//			String user = "root";
+//			String password = "root";
+//			conn = DriverManager.getConnection(url, user, password);
+//			
+//			if(conn != null) {
+//				System.out.println("DB연동 성공!");				
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		return conn;
+//	}
 	
 	// 4. 연동된 DB에서 데이터 불러오기
 	
@@ -52,7 +56,7 @@ public class userDAO {
 		users = new ArrayList<userDTO>();
 		
 		try {
-			conn = getConnection(); 			// DB연동하기
+			conn = DBManager.getConnection(); 			// DB연동하기(DB메니저에서 불러옴)
 			String sql = "select* from users";
 			pstmt = conn.prepareStatement(sql); // 연동된 DB에 쿼리를 날릴 준비
 			rs = pstmt.executeQuery();			// 쿼리를 날리면서 ResultSet을 반환 받음
@@ -86,7 +90,7 @@ public class userDAO {
 	// ㄴ Create Read Update Delete
 	public void addUser(userDTO user) {
 		try {
-			conn = getConnection();
+			conn = DBManager.getConnection(); 
 			String sql = "insert into users(id, pw, name, year, month, day, gender, email, phone, regDate) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // ? = sql의 포멧
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getId());
